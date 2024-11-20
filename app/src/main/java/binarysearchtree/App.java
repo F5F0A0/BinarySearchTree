@@ -4,11 +4,14 @@
 package binarysearchtree;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
-
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        BinarySearchTree<Integer> bst = new BinarySearchTree<>();
+        bst.put(10);
+        bst.put(5);
+        bst.put(15);
+
+        System.out.println("In-order Traversal: " + bst.inOrderTraversal());
+        System.out.println("Tree contains 10: " + bst.contains(10));
+        System.out.println("Tree height: " + bst.height());
     }
 }
