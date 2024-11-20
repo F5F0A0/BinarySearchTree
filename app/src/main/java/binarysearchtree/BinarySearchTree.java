@@ -9,7 +9,7 @@ package binarysearchtree;
 
 public class BinarySearchTree<T extends Comparable<T>>{
 
-    private Node<T> root;
+    private BSTNode<T> root;
 
     /**
      * Inserts a new key into the Binary Search Tree.
@@ -27,9 +27,9 @@ public class BinarySearchTree<T extends Comparable<T>>{
      * @param key The key to be inserted
      * @return The updated node after insertion
      */
-    private Node<T> put(Node<T> cur, T key) {
+    private BSTNode<T> put(BSTNode<T> cur, T key) {
         if (cur == null) {
-            return new Node<T>(key);
+            return new BSTNode<T>(key);
         }
         int cmp = key.compareTo(cur.getKey());
         if (cmp < 0) {
@@ -59,7 +59,7 @@ public class BinarySearchTree<T extends Comparable<T>>{
      * @param key The key to search for
      * @return true if the key is found, false otherwise
      */
-    private boolean contains(Node<T> cur, T key) {
+    private boolean contains(BSTNode<T> cur, T key) {
         if (cur == null) {
             return false;
         }
@@ -90,7 +90,7 @@ public class BinarySearchTree<T extends Comparable<T>>{
      * @param parent The parent node of the current node
      * @return The updated node after deletion
      */
-    private Node<T> delete(Node<T> cur, T key, Node<T> parent) {
+    private BSTNode<T> delete(BSTNode<T> cur, T key, BSTNode<T> parent) {
         if (cur == null) {
             return null;
         }
@@ -120,8 +120,8 @@ public class BinarySearchTree<T extends Comparable<T>>{
             }
             // case 3: 2 children
             // find the successor (smallest node in the right subtree)
-            Node<T> successor = findMin(cur.getRight());
-            Node<T> successorParent = findParent(successor, cur);
+            BSTNode<T> successor = findMin(cur.getRight());
+            BSTNode<T> successorParent = findParent(successor, cur);
             // if successor is not the direct right child of cur, move its subtree
             if (successorParent != cur) {
                 successorParent.setLeft(successor.getRight());
@@ -148,7 +148,7 @@ public class BinarySearchTree<T extends Comparable<T>>{
      * @param node The root of the subtree
      * @return The node with the smallest key in the subtree
      */
-    private Node<T> findMin(Node<T> node) {
+    private BSTNode<T> findMin(BSTNode<T> node) {
         while (node.getLeft() != null) {
             node = node.getLeft();
         }
@@ -162,7 +162,7 @@ public class BinarySearchTree<T extends Comparable<T>>{
      * @param cur  The current node during traversal
      * @return The parent node of the specified node
      */
-    private Node<T> findParent(Node<T> node, Node<T> cur) {
+    private BSTNode<T> findParent(BSTNode<T> node, BSTNode<T> cur) {
         if (cur == null || cur.getLeft() == node || cur.getRight() == node) {
             return cur;
         }
@@ -188,7 +188,7 @@ public class BinarySearchTree<T extends Comparable<T>>{
      * @param cur The root of the subtree
      * @return The height of the subtree
      */
-    private int height(Node<T> cur) {
+    private int height(BSTNode<T> cur) {
         if (cur == null) {
             return 0;
         }
@@ -213,7 +213,7 @@ public class BinarySearchTree<T extends Comparable<T>>{
      * @param cur The root of the subtree
      * @return The height of the subtree, or -1 if the subtree is not balanced
      */
-    private int isBalanced(Node<T> cur) {
+    private int isBalanced(BSTNode<T> cur) {
         if (cur == null) {
             return 0;
         }
@@ -249,7 +249,7 @@ public class BinarySearchTree<T extends Comparable<T>>{
      * @param cur The root of the subtree
      * @param sb  The StringBuilder used to construct the result
      */
-    private void inOrderTraversal(Node<T> cur, StringBuilder sb) {
+    private void inOrderTraversal(BSTNode<T> cur, StringBuilder sb) {
         if (cur == null) {
             return;
         }
@@ -278,7 +278,7 @@ public class BinarySearchTree<T extends Comparable<T>>{
      * @param cur The root of the subtree
      * @param sb  The StringBuilder used to construct the result
      */
-    private void serialize(Node<T> cur, StringBuilder sb) {
+    private void serialize(BSTNode<T> cur, StringBuilder sb) {
         if (cur == null) {
             return;
         }
@@ -324,11 +324,11 @@ public class BinarySearchTree<T extends Comparable<T>>{
      * @param cur The root of the subtree
      * @return The new reversed node
      */
-    private Node<T> reverse(Node<T> cur) {
+    private BSTNode<T> reverse(BSTNode<T> cur) {
         if (cur == null) {
             return null;
         }
-        Node<T> newNode = new Node<>(cur.getKey());
+        BSTNode<T> newNode = new BSTNode<>(cur.getKey());
         newNode.setLeft(reverse(cur.getRight()));
         newNode.setRight(reverse(cur.getLeft()));
         return newNode;

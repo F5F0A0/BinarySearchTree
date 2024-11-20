@@ -1,6 +1,6 @@
 package binarysearchtree;
 
-public class Node<T extends Comparable<T>> {
+public class BSTNode<T extends Comparable<T>> {
 
     /**
      * Key held by this node
@@ -10,17 +10,17 @@ public class Node<T extends Comparable<T>> {
     /**
      * Left child reference
      */
-    private Node<T> left;
+    private BSTNode<T> left;
 
     /**
      * Right child reference
      */
-    private Node<T> right;
+    private BSTNode<T> right;
 
     /**
      * Constructor that accepts the key to be held by the new node
      */
-    public Node(T k) {
+    public BSTNode(T k) {
         key = k;
     }
 
@@ -38,7 +38,7 @@ public class Node<T extends Comparable<T>> {
      *
      * @return Reference to the left child
      */
-    public Node<T> getLeft() {
+    public BSTNode<T> getLeft() {
         return left;
     }
 
@@ -47,7 +47,7 @@ public class Node<T extends Comparable<T>> {
      *
      * @return Reference to the left child
      */
-    public Node<T> getRight() {
+    public BSTNode<T> getRight() {
         return right;
     }
 
@@ -56,7 +56,7 @@ public class Node<T extends Comparable<T>> {
      *
      * @param l BTNode to set as the left child
      */
-    public void setLeft(Node<T> l) {
+    public void setLeft(BSTNode<T> l) {
         left = l;
     }
 
@@ -65,7 +65,7 @@ public class Node<T extends Comparable<T>> {
      *
      * @param r BTNode to set as the right child
      */
-    public void setRight(Node<T> r) {
+    public void setRight(BSTNode<T> r) {
         right = r;
     }
 }
