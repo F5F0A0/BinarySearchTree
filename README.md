@@ -65,4 +65,4 @@ System.out.println("In-order Traversal: " + bst.inOrderTraversal());
 ## Author
 **Bridget Brinkman**  
 GitHub: [@F5F0A0](https://github.com/F5F0A0)  
-Project for **CS1501 - Algorithms and Data Structures 2**, Fall 2024.
+Project for **CS1501 - Algorithms and Data Structures II**, Fall 2024.
